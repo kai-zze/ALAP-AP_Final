@@ -1,0 +1,225 @@
+:root {
+    --primary-blue: #5068A9;
+    --dark-blue: #3E528B;
+    --red-accent: #E55757;
+    --text-color: #FFFFFF;
+    --light-gray-text: #B0B0B0;
+    --dark-text-on-light: #333;
+    --light-bg: #5068A9;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--primary-blue);
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    background-color: var(--primary-blue);
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    margin: 0;
+}
+
+.calendar-section {
+    padding: 30px 20px;
+    color: var(--text-color);
+    background-color: var(--primary-blue);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.calendar-header {
+    font-size: 1.8em;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    background-color: var(--dark-blue);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.day-label, .date-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 5px;
+    font-size: 0.85em;
+    font-weight: 400;
+}
+
+.day-label {
+    color: var(--light-gray-text);
+    font-weight: 500;
+}
+
+.date-number {
+    color: var(--text-color);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.date-number:hover:not(.selected) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.date-number.selected {
+    background-color: var(--red-accent);
+    font-weight: 700;
+}
+
+.breakdown-section {
+    background-color: var(--primary-blue);
+    padding: 30px 20px;
+    flex-grow: 1;
+    color: var(--text-color);
+}
+
+.breakdown-header {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.task-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: var(--dark-text-on-light);
+}
+
+.task-card .menu-icon {
+    font-size: 1.5em;
+    color: var(--light-gray-text);
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--dark-blue);
+    padding: 10px 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--light-gray-text);
+    font-size: 0.7em;
+    text-decoration: none;
+    gap: 5px;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: var(--text-color);
+}
+
+.nav-item.active {
+    color: var(--red-accent);
+}
+
+.nav-item i {
+    font-size: 1.3em;
+}
+
+.add-task-button {
+    background-color: var(--red-accent);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: var(--text-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: -20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.add-task-button:hover {
+    transform: translateY(-22px) scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .container {
+        border-radius: 0;
+    }
+
+    .calendar-section, .breakdown-section {
+        padding: 20px 15px;
+    }
+
+    .calendar-grid {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .day-label, .date-number {
+        padding: 6px 3px;
+        font-size: 0.8em;
+    }
+
+    .nav-bar {
+        padding: 8px 0;
+    }
+
+    .nav-item {
+        font-size: 0.65em;
+        gap: 3px;
+    }
+
+    .nav-item i {
+        font-size: 1.2em;
+    }
+
+    .add-task-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+        top: -15px;
+    }
+
+    .add-task-button:hover {
+        transform: translateY(-17px) scale(1.05);
+    }
+}
